@@ -1,0 +1,70 @@
+Here is a sample React application that toggles the background color of the web page on every click:
+
+```
+import React, { useState } from 'react';
+import './App.css';
+
+function App() {
+  const [bgColor, setBgColor] = useState('white');
+
+  const handleClick = () => {
+    if (bgColor === 'white') {
+      setBgColor('black');
+    } else {
+      setBgColor('white');
+    }
+  }
+
+  return (
+    <div className="App" style={{ backgroundColor: bgColor }}>
+      <h1>Toggle Background Color</h1>
+      <button onClick={handleClick}>Toggle</button>
+    </div>
+  );
+}
+
+export default App;
+```
+
+First, we import `useState` hook from React, which allows us to add state to functional components. We define a state variable `bgColor` with an initial value of `'white'`. We also define a `handleClick` function which checks the current value of `bgColor` and sets it to `'black'` or `'white'` accordingly. We then render a `div` element with a background color equal to the current value of `bgColor` and a button to toggle the background color.
+
+To use this component, you can save the code above in a file named `App.js` and add a `App.css` file next to it with the following content:
+
+```
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+```
+
+Then, you can import and use the `App` component in your `index.js` file as follows:
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+```
+
+When you run the application with `npm start`, you should see a button that toggles the background color of the web page on every click.
+
+
+
